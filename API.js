@@ -1,4 +1,4 @@
-const API ="https:crudcrud.com/api/SEU_ID/|personagens";
+const API = "https://mimicry.rest/m/SEU_PROJECTSLUG/personagens";
 let editandoId = null;
 
 async function listar() {
@@ -51,6 +51,25 @@ async function excluir(id) {
     await fetch(`${API}/${id}`, { method: "DELETE" });
     listar();
 }
+const botao = document.getElementById("salvar");
+
+botao.addEventListener("click", function() {
+
+    const nome = document.getElementById("nome").value;
+    const classe = document.getElementById("classe").value;
+    const nivel = document.getElementById("nivel").value;
+
+    const ficha = {
+        nome: nome,
+        classe: classe,
+        nivel: nivel
+    };
+
+    localStorage.setItem("fichaRPG", JSON.stringify(ficha));
+
+    alert("Ficha salva com sucesso!");
+
+});
 document.getElementById("btnSalvar"),onclick = salvar;
 listar()
 
